@@ -1,4 +1,4 @@
 # hello-electron-react
-My first steps width electron framework
+My first steps with electron framework
 
 boilerplate with react.js
