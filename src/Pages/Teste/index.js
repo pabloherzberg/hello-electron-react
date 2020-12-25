@@ -1,9 +1,8 @@
 import React from 'react';
-
-// import { Container } from './styles';
+import {Link} from 'react-router-dom'
 
 function Teste() {
-  return <div >Teste</div>;
+  return <div ><Link to='/'>enviar para home</Link></div>;
 }
 
 export default Teste;

@@ -3,18 +3,24 @@ const path = require('path')
 
 function createWindow(){
     const win = new BrowserWindow({
-        width:1200,
-        height:800,
-        backgroundColor:'purple',
+        minWidth:600,
+        minHeight:400,
+        center:true,
+        resizable:true,
+        frame:true,
+        transparent:false,
+        alwaysOnTop:false,
+        backgroundColor:'#fff',
         webPreferences:{
-            nodeIntegration:false,
+            enableRemoteModule:true,
+            nodeIntegration:true,
             worldSafeExecuteJavaScript:true,
-            contextIsolation:true
         }
     })
 
 
     win.loadFile('index.html')
+    //win.loadURL('https://www.youtube.com/watch?v=Ln926XT33RM&t=968s')
 }
 
 require('electron-reload')(__dirname, {
@@ -22,3 +28,9 @@ require('electron-reload')(__dirname, {
 })
 
 app.whenReady().then(createWindow).catch(()=>console.log('erro'))
+
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+      app.quit()
+    }
+  })
